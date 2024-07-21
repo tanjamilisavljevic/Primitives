@@ -46,3 +46,7 @@ export const ScoreWrapper = styled.div`
 		margin-left: 0.5rem;
 	}
 `;
+
+export const Button = styled.button`
+	margin-top: 2rem;
+`;

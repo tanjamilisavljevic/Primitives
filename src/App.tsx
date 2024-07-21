@@ -3,9 +3,10 @@ import Triangle from "./components/Triangle";
 import Circle from "./components/Circle";
 import BeautyScore from "./components/BeautyScore";
 import { useState } from "react";
-import { Title, Wrapper, StyledApp } from "./styles";
+import { Title, Wrapper, StyledApp, Button } from "./styles";
 import ArtBox from "./components/ArtBox";
 import { Rnd } from "react-rnd";
+import saveArt from "./hooks/saveArt";
 
 const App = () => {
 	// Would combine all these useStates.
@@ -88,6 +89,9 @@ const App = () => {
 					/>
 				</Rnd>
 			</ArtBox>
+			<Button id="art" onClick={() => saveArt("art")}>
+				Save
+			</Button>
 		</StyledApp>
 	);
 };
