@@ -6,9 +6,9 @@ const saveArt = (elementId: string) => {
 		html2canvas(element).then((canvas) => {
 			canvas.toBlob((blob) => {
 				const formData = new FormData();
-				blob && formData.append("image", blob, "component.png");
+				blob && formData.append("image", blob, "art.png");
 
-				fetch("http://localhost:3000/save-image", {
+				fetch("http://localhost:5000/download-art", {
 					method: "POST",
 					body: formData,
 				})
