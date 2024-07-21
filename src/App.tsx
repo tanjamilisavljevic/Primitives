@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Title, Wrapper, StyledApp, Button } from "./styles";
 import ArtBox from "./components/ArtBox";
 import { Rnd } from "react-rnd";
-import saveArt from "./hooks/saveArt";
+import saveArt from "./hooks/util";
 
 const App = () => {
 	// Would combine all these useStates.
