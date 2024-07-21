@@ -8,7 +8,7 @@ const saveArt = (elementId: string) => {
 				const formData = new FormData();
 				blob && formData.append("image", blob, "component.png");
 
-				fetch("http://localhost:5000/save-image", {
+				fetch("http://localhost:3000/save-image", {
 					method: "POST",
 					body: formData,
 				})

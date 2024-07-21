@@ -41,7 +41,7 @@ const App = () => {
 				circle={{ diameter: diameter }}
 				rectangle={{ height: rectangleHeight, width: rectangleWidth }}
 			/>
-			<ArtBox>
+			<ArtBox id="art">
 				<Rnd
 					default={{
 						x: 20,
@@ -89,9 +89,7 @@ const App = () => {
 					/>
 				</Rnd>
 			</ArtBox>
-			<Button id="art" onClick={() => saveArt("art")}>
-				Save
-			</Button>
+			<Button onClick={() => saveArt("art")}>Save</Button>
 		</StyledApp>
 	);
 };
