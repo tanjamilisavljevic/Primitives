@@ -42,4 +42,7 @@ export const LabelAndInput = styled.div`
 export const ScoreWrapper = styled.div`
 	display: flex;
 	align-items: center;
+	p {
+		margin-left: 0.5rem;
+	}
 `;

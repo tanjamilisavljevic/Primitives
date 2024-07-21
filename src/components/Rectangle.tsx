@@ -7,6 +7,7 @@ type RectangleProps = {
 	setWidth: Dispatch<SetStateAction<number>>;
 	height: number;
 	setHeight: Dispatch<SetStateAction<number>>;
+	showInputs?: boolean;
 };
 
 const Rectangle = ({
@@ -14,6 +15,7 @@ const Rectangle = ({
 	setWidth,
 	height,
 	setHeight,
+	showInputs = true,
 }: RectangleProps): ReactElement => {
 	const handleWidthChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setWidth(+e.target.value);
@@ -23,34 +25,40 @@ const Rectangle = ({
 		setHeight(+e.target.value);
 	};
 
-	return (
-		<PrimitiveWrapper>
-			<StyledRectangle width={width} height={height} />
+	if (showInputs)
+		return (
+			<PrimitiveWrapper>
+				<StyledRectangle width={width} height={height} />
 
-			<LabelAndInput>
-				<label>Width:</label>
-				<input
-					type="number"
-					value={width}
-					onChange={handleWidthChange}
-					placeholder="e.g., 150"
-					min="0"
-					max="100"
-				/>
-			</LabelAndInput>
-			<LabelAndInput>
-				<label>Height:</label>
-				<input
-					type="number"
-					value={height}
-					onChange={handleHeightChange}
-					placeholder="e.g., 100"
-					min="0"
-					max="100"
-				/>
-			</LabelAndInput>
-		</PrimitiveWrapper>
-	);
+				{showInputs && (
+					<>
+						<LabelAndInput>
+							<label>Width:</label>
+							<input
+								type="number"
+								value={width}
+								onChange={handleWidthChange}
+								placeholder="e.g., 150"
+								min="0"
+								max="100"
+							/>
+						</LabelAndInput>
+						<LabelAndInput>
+							<label>Height:</label>
+							<input
+								type="number"
+								value={height}
+								onChange={handleHeightChange}
+								placeholder="e.g., 100"
+								min="0"
+								max="100"
+							/>
+						</LabelAndInput>
+					</>
+				)}
+			</PrimitiveWrapper>
+		);
+	else return <StyledRectangle width={width} height={height} />;
 };
 
 export default Rectangle;

@@ -7,6 +7,7 @@ type TriangleProps = {
 	setBase: Dispatch<SetStateAction<number>>;
 	height: number;
 	setHeight: Dispatch<SetStateAction<number>>;
+	showInputs?: boolean;
 };
 
 const Triangle = ({
@@ -14,6 +15,7 @@ const Triangle = ({
 	setBase,
 	height,
 	setHeight,
+	showInputs = true,
 }: TriangleProps): ReactElement => {
 	const handleBaseChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setBase(+e.target.value);
@@ -23,35 +25,37 @@ const Triangle = ({
 		setHeight(+e.target.value);
 	};
 
-	return (
-		<PrimitiveWrapper>
-			<StyledTriangle base={base} height={height}></StyledTriangle>
+	if (showInputs) {
+		return (
+			<PrimitiveWrapper>
+				<StyledTriangle base={base} height={height}></StyledTriangle>
 
-			<LabelAndInput>
-				<label>Base:</label>
-				<input
-					type="number"
-					value={base}
-					onChange={handleBaseChange}
-					placeholder="e.g., 150"
-					min="0"
-					max="100"
-				/>
-			</LabelAndInput>
+				<LabelAndInput>
+					<label>Base:</label>
+					<input
+						type="number"
+						value={base}
+						onChange={handleBaseChange}
+						placeholder="e.g., 150"
+						min="0"
+						max="100"
+					/>
+				</LabelAndInput>
 
-			<LabelAndInput>
-				<label>Height:</label>
-				<input
-					type="number"
-					value={height}
-					onChange={handleHeightChange}
-					placeholder="e.g., 150"
-					min="0"
-					max="100"
-				/>
-			</LabelAndInput>
-		</PrimitiveWrapper>
-	);
+				<LabelAndInput>
+					<label>Height:</label>
+					<input
+						type="number"
+						value={height}
+						onChange={handleHeightChange}
+						placeholder="e.g., 150"
+						min="0"
+						max="100"
+					/>
+				</LabelAndInput>
+			</PrimitiveWrapper>
+		);
+	} else return <StyledTriangle base={base} height={height}></StyledTriangle>;
 };
 
 export default Triangle;

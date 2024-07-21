@@ -4,6 +4,8 @@ import Circle from "./components/Circle";
 import BeautyScore from "./components/BeautyScore";
 import { useState } from "react";
 import { Title, Wrapper, StyledApp } from "./styles";
+import ArtBox from "./components/ArtBox";
+import { Rnd } from "react-rnd";
 
 const App = () => {
 	// Would combine all these useStates.
@@ -38,6 +40,54 @@ const App = () => {
 				circle={{ diameter: diameter }}
 				rectangle={{ height: rectangleHeight, width: rectangleWidth }}
 			/>
+			<ArtBox>
+				<Rnd
+					default={{
+						x: 20,
+						y: 20,
+						width: rectangleWidth,
+						height: rectangleHeight,
+					}}
+				>
+					<Rectangle
+						width={rectangleWidth}
+						setWidth={setRectangleWidth}
+						height={rectangleHeight}
+						setHeight={setRectangleHeight}
+						showInputs={false}
+					/>
+				</Rnd>
+				<Rnd
+					default={{
+						x: 50,
+						y: 50,
+						width: base,
+						height: triangleHeight,
+					}}
+				>
+					<Triangle
+						base={base}
+						setBase={setBase}
+						height={triangleHeight}
+						setHeight={setTriangleHeight}
+						showInputs={false}
+					/>
+				</Rnd>
+				<Rnd
+					default={{
+						x: 80,
+						y: 80,
+						width: diameter,
+						height: diameter,
+					}}
+				>
+					<Circle
+						diameter={diameter}
+						setDiameter={setDiameter}
+						showInputs={false}
+					/>
+				</Rnd>
+			</ArtBox>
 		</StyledApp>
 	);
 };

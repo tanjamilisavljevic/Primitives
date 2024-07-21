@@ -37,7 +37,7 @@ const BeautyScore = ({
 	return (
 		<ScoreWrapper>
 			<h3>Beauty score:</h3>
-			<p>{Math.round(beautyScore)}%</p>
+			<p> {Math.round(beautyScore)}%</p>
 		</ScoreWrapper>
 	);
 };
